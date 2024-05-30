@@ -1,0 +1,2 @@
+parameters:
+    erdman.replydiff.tables.replydiff_table: '%core.table_prefix%erdman_replydiff_table'

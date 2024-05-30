@@ -1,0 +1,3 @@
+erdman_replydiff_controller:
+    path: /demo/{name}
+    defaults: { _controller: erdman.replydiff.controller.main:handle }

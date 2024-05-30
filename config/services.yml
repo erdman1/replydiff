@@ -1,0 +1,22 @@
+imports:
+    - { resource: parameters.yml }
+
+services:
+    erdman.replydiff.listener:
+        class: erdman\replydiff\event\main_listener
+        arguments:
+            - '@language'
+            - '@controller.helper'
+            - '@template'
+            - '%core.php_ext%'
+            - '@dbal.conn'
+        tags:
+            - { name: event.listener }
+
+    erdman.replydiff.controller.mcp:
+        class: erdman\replydiff\controller\mcp_controller
+        arguments:
+            - '@language'
+            - '@request'
+            - '@template'
+            - '@dbal.conn'

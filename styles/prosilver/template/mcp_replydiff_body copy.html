@@ -1,0 +1,38 @@
+{% include 'mcp_header.html' %}
+
+<form id="erdman_replydiff_mcp" name="erdman_replydiff_mcp" method="post" action="{{ U_MCP_ACTION }}">
+
+	<h2>{{ lang('MCP_REPLYDIFF_TITLE') }}</h2>
+
+	<div class="panel">
+		<div class="inner">
+			<fieldset>
+				{% if S_ERROR %}
+					<p class="error">{{ ERROR_MSG }}</p>
+				{% endif %}
+				<dl>
+					<dd><input name="current_id" id="current_id" type="number" value="{{ CURRENT_TOPIC_ID }}" /></dd>
+					<dt><label for="replydiff_id">ReplyDiff Topic ID:</label></dt>
+					<dd><input name="replydiff_id" id="replydiff_id" type="text" value="{{ CURRENT_REPLYDIFF_ID }}" /></dd>
+
+				</dl>
+				<p>Current Topic: {{ CURRENT_TOPIC_TITLE }}</p>
+				<p>Redirect Destination Topic: {{ REDIRECT_TOPIC_TITLE }}</p>
+			</fieldset>
+		</div>
+	</div>
+	{% if SUCCESS_MSG %}
+    <p class="success">{{ SUCCESS_MSG }}</p>
+{% endif %}
+
+	<fieldset class="submit-buttons">
+		<input type="reset" name="reset" value="{{ lang('RESET') }}" class="button2" />&nbsp;
+		<input type="submit" name="submit" value="{{ lang('SUBMIT') }}" class="button1" />
+		{{ S_FORM_TOKEN }}
+	</fieldset>
+</form>
+<!-- IF S_ERROR_MESSAGE -->
+<div class="error-message">{S_ERROR_MESSAGE}</div>
+<!-- ENDIF -->
+
+{% include 'mcp_footer.html' %}
